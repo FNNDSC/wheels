@@ -1,19 +1,23 @@
-# nipypeWheels
+<img src="http://fnndsc.github.com/wheels/artwork/logo.png">
 
 ### What is it?
 
-<i>nipypeWheels</i> is an interface for <b>easy pipelining</b> using Nipype (http://nipy.sourceforge.net/nipype/). 
+<b>nipypeWheels</b> is an interface for <b>easy pipelining</b> using Nipype (http://nipy.sourceforge.net/nipype/). 
 It comes with a <b>Pype and Wheels</b>. The <b>Pype</b> automatically connects <b>Wheels</b> and runs them in a <i>multi-threaded</i> fashion.
 Each <b>Wheel</b> is a completely configurable unit. It can execute any python code and attaches to other <b>Wheels</b> using inputs and outputs.
 
 ### Example ###
 Let's realize a simple workflow. The following image shows how seven different wheels interact and get executed in respect to time. The Wheels get linked automatically by analyzing the inputs and outputs.
+
 <img src="http://fnndsc.github.com/wheels/artwork/example.png">
 
-Here is the code:
+Here is <b>the code</b>:
 
     from wheels import *
     
+    #
+    # (1) Create the seven wheels.
+    #
     class WheelOne( Wheel ):
       _in_ = Enum()
       _out_ = Enum( 'data1' )
@@ -69,8 +73,9 @@ Here is the code:
       def spin(data5, data6):
         print ('>> PATH: ' + data5 + data6 + 'w7THEEND')
     
-    
-    # create the Pype
+    #
+    # (2) Add them to a Pype
+    #
     p = Pype()
     p.add( WheelOne )
     p.add( WheelTwo )
@@ -79,7 +84,16 @@ Here is the code:
     p.add( WheelFive )
     p.add( WheelSix )
     p.add( WheelSeven )
+    #
+    # (3) .. now SPIN THA WHEELZ!!
+    #
     p.run()
 
 
 ### License ###
+Copyright (c) 2012 Fetal Neonatal Neuroimaging and Developmental Science Center, Children's Hospital Boston
+
+This code is licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
+<a href="http://childrenshospital.org/FNNDSC"><img src="http://xtk.github.com/chb_logo.jpg" alt="Children's Hospital Boston" title="Children's Hospital Boston"></a>
+<a href="http://hms.harvard.edu"><img src="http://xtk.github.com/hms_logo.jpg" alt="Harvard Medical School" title="Harvard Medical School"></a>

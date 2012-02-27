@@ -8,7 +8,7 @@ Each <b>Wheel</b> is a completely configurable unit. It can execute any python c
 
 ### Get it! ###
 <a href="https://github.com/FNNDSC/wheels/zipball/master"><img border="0" width="60" src="https://github.com/images/modules/download/zip.png"></a><a href="https://github.com/FNNDSC/wheels/tarball/master"><img border="0" width="60" src="https://github.com/images/modules/download/tar.png"></a>
-<br>Download + Unzip! Then execute <b>python example.py</b> to run the example.
+<br>Download + Unzip! Then execute <b>python example.py</b> to run the example. Nipype required!
 
 ### Example ###
 Let's realize a simple workflow. The following image shows how seven different wheels interact and get executed in respect to time. The Wheels get linked automatically by analyzing the inputs and outputs.

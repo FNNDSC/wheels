@@ -1,4 +1,5 @@
-from wheels import *
+from wheel import *
+from pype import *
 
 class WheelOne( Wheel ):
   _in_ = Enum()

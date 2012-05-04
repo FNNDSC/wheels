@@ -30,18 +30,21 @@ class Pype():
     '''
     self.__wheels.append( wheel )
 
-  def run( self ):
+  def run( self, multiThreaded=True ):
     '''
     '''
-    print "nipypeWheels v0.1"
+    print "nipypeWheels v0.2"
     print "-----------------"
     self.__connect()
     print "--"
     print "-- spin tha wheelz.."
     print "-----------------"
     print
-    self.__workflow.run( plugin='MultiProc', plugin_args={'n_procs':multiprocessing.cpu_count()} )
-
+    if multiThreaded:
+      self.__workflow.run( plugin='MultiProc', plugin_args={'n_procs':multiprocessing.cpu_count()} )
+    else:
+      # run only single threaded
+      self.__workflow.run()
 
   def __connect( self ):
     '''

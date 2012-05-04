@@ -17,6 +17,7 @@ Let's realize a simple workflow. The following image shows how seven different w
 
 Here is <b>the code</b>:
 
+```python
     from wheels import *
     
     #
@@ -92,6 +93,7 @@ Here is <b>the code</b>:
     # (3) .. now SPIN THA WHEELZ!!
     #
     p.run()
+```
 
 ### License ###
 Copyright (c) 2012 Fetal Neonatal Neuroimaging and Developmental Science Center, Children's Hospital Boston

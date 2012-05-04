@@ -50,12 +50,21 @@ class Pype():
 
     # this is expensive - but who cares?
     for w in wheels:
+      wheel1 = w()
+      _ins = w._in_.keys()
+      for _i in _ins:
+        value = w._in_.get( _i )
+        if value != _i:
+          # we have a default value set up
+          setattr( wheel1.inputs, _i, value )
+
       outs = w._out_.keys()
       for o in outs:
         for w2 in wheels:
+          wheel2 = w2()
           ins = w2._in_.keys()
           for i in ins:
             if i == o:
               print "-- connecting [" + str( w.__name__ ) + "._out_." + str( o ) + "] to [" + str( w2.__name__ ) + "._in_." + str( i ) + "]"
-              self.__workflow.connect( w(), eval( 'w._out_.' + str( o ) ), w2(), eval( 'w2._in_.' + str( o ) ) )
+              self.__workflow.connect( wheel1, eval( 'w._out_.' + str( o ) ), wheel2, eval( 'w2._in_.' + str( o ) ) )
 

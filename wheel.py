@@ -16,6 +16,9 @@ class Enum( dict ):
   def __str__( self ):
     return str( self.__dict__.keys() )
 
+  def get( self, key ):
+    return self.__dict__[key]
+
 
 class Singleton( type ):
     def __init__( cls, name, bases, dict ):
